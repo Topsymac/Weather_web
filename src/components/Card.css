@@ -1,0 +1,23 @@
+.weatherCard{
+  
+  padding: 10px;
+  border-radius: 10px;
+}
+.weekly-forecast{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+ 
+}
+.weekly-box{
+  background: rgba(0, 0, 0, 0.75);
+ /* border: 1px solid; */
+ border-radius: 10px;
+ padding: 10px;
+}
+.weekly_box_details{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

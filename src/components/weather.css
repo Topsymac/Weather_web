@@ -1,0 +1,50 @@
+.weather_hero{
+    background: rgb(138, 168, 224);
+    display: flex;
+    /* justify-content: center; */
+    gap: 20px;
+    /* align-items: center; */
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    /* margin: 70px;  */
+    /* height: 350px; */
+}
+.hero_left{
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 40%;
+}
+.hero_left_top{
+    display: flex;
+    justify-content: space-between;
+}
+.hero_left_middle{
+    text-align: center;
+}
+.hero_left_bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.hero_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    background: rgb(198, 202, 228);
+    margin: 20px;
+    width: 60%;
+    height: 250px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.hero_right_bottom{
+    display: flex;
+    justify-content: space-between;
+}
