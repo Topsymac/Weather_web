@@ -39,7 +39,7 @@ const Card = ({
   weeklyData,
   locationWeeklyData,
 }: Props) => {
-  console.log(locationWeeklyData?.list);
+  // console.log(locationWeeklyData?.list);
   const [locationWeek, setLocationWeek] = useState<any>();
   const [searchWeek, setSearchWeek] = useState<any>()
 
@@ -50,7 +50,7 @@ const Card = ({
         const time = date.getDay();
         return { ...item, timeNumber: time };
       });
-      console.log(newArray)
+      // console.log(newArray)
       const arr = newArray.map(({ timeNumber }) => timeNumber);
       const dateArray = newArray.filter(
         ({ timeNumber }, index) => !arr.includes(timeNumber, index + 1)
@@ -66,7 +66,7 @@ const Card = ({
          const time = date.getDay();
          return { ...item, timeNumber: time };
        });
-       console.log(newArrays);
+      //  console.log(newArrays);
        const arr = newArrays.map(({ timeNumber }) => timeNumber);
        const dateArray = newArrays.filter(
          ({ timeNumber }, index) => !arr.includes(timeNumber, index + 1)
@@ -75,13 +75,13 @@ const Card = ({
      }
    }, [weeklyData]);
 
-  useEffect(() => {
-    console.log(searchWeek);
-  }, [searchWeek]);
+  // useEffect(() => {
+  //   console.log(searchWeek);
+  // }, [searchWeek]);
 
   return (
     <div className="weatherCard">
-      <h2>Weekly weather Report</h2>
+      <h2 className="weatherCard_h2">Weekly weather Report</h2>
       <>
         {isWeeklyLoading ? (
           <CircularProgress />
@@ -89,7 +89,7 @@ const Card = ({
           <p>Error fetching weekly weather data</p>
         ) : (
           <div className="weekly-forecast">
-            {searchWeek?.slice(1, 2).map((item: any) => {
+            {searchWeek?.slice(0, 2).map((item: any) => {
               const day = new Date(item.dt * 1000);
               return (
                 <div className="weekly-box" key={item.dt}>
@@ -97,7 +97,7 @@ const Card = ({
                   {/* <p>{item.dt_txt}</p> */}
                   <div className="weekly_box_details">
                     <img
-                      src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                      src={`http://openweathermap.org/img/wn/${item.weather[0]?.icon}@2x.png`}
                       alt=""
                     />
                     <h4>{item.weather[0].main}</h4>
@@ -115,7 +115,7 @@ const Card = ({
                   {/* <p>{items.dt_txt}</p> */}
                   <div className="weekly_box_details">
                     <img
-                      src={`http://openweathermap.org/img/wn/${items.weather[0].icon}@2x.png`}
+                      src={`http://openweathermap.org/img/wn/${items.weather[0]?.icon}@2x.png`}
                       alt=""
                     />
                     <h4>{items.weather[0].main}</h4>

@@ -133,7 +133,7 @@ const WeatherApp = () => {
     }
   };
   const isDay = data?.dt > data?.sys.sunrise && data?.dt < data?.sys.sunset;
-console.log(locationData);
+// console.log(locationData);
   return (
     <div
       className="bg_img"

@@ -21,6 +21,7 @@ body {
   /* flex-direction: column; */
   color: #fff;
 }
+
 .bg_left{
   width: 70%;
   padding: 2rem;
@@ -30,7 +31,7 @@ body {
   flex-direction: column;
 }
 .bg_right{
-  width: 25%;
+  /* width: 25%; */
   /* height: 100vh; */
   /* background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c); linear-gradient(0.25turn, orange, #f69d3c)*/ 
   /* color: black; */
@@ -87,9 +88,10 @@ body {
   display: flex;
 } */
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 1210px) {
   .bg_img {
     padding: 2rem 0;
+    flex-direction: column;
   }
 
   .box_container {
