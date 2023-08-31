@@ -42,7 +42,7 @@ function TopButtons() {
       },
       {
         id: 2,
-        title: "Lagos",
+        title: "Addis Ababa",
       },
       {
         id: 3,
@@ -67,8 +67,9 @@ function TopButtons() {
   const [loading, setLoading] = useState<boolean>(true);
 
   async function fetchCity (cityParams:string){
+    console.log(cityParams)
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityParams}&appid=a113ddf4091f1abbc05a69bd8851df6f`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityParams}&appid=a113ddf4091f1abbc05a69bd8851df6f&units=metric`)
         if (response.status === 200) {
         setError(false);
         const data = await response.json();
@@ -87,19 +88,22 @@ function TopButtons() {
   useEffect(() => {
     async function fetchData() {
       const fetchedData = await Promise.all(
-        cityNames.map(async (cityName:string) => {
-          return fetchCity(cityName);
+        cities.map(async (cityName: City) => {
+          return fetchCity(cityName.title);
         })
       );
 
+      // const testData = await fetchCity(cityName);
+
       setData(fetchedData);
     }
+
 
     fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // console.log('final data', data)
+  console.log('final data', data)
   
 
   return (
@@ -121,7 +125,11 @@ function TopButtons() {
               <div
                 key={index}
                 className="gridItem"
-                style={{ background: isDay ? "" : "blue" }}
+                style={{
+                  background: isDay
+                    ? ""
+                    : "linear-gradient(0.25turn, #f1e3e3, #021f42)",
+                }}
               >
                 <div className="gridItem_top">
                   <img

@@ -18,6 +18,7 @@ const IP_GEOLOCATION_BASE_URL = "https://ipapi.co/json/";
 const queryClient = new QueryClient();
 
 const fetchWeatherByCity = async (cityName: string) => {
+  console.log(cityName, "On load")
   try {
     const response = await axios.get(WEATHER_BASE_URL, {
       params: {
@@ -131,17 +132,28 @@ const WeatherApp = () => {
       setInputText(e.currentTarget.value);
       setInputText("");
     }
-  };
-  const isDay = data?.dt > data?.sys.sunrise && data?.dt < data?.sys.sunset;
-// console.log(locationData);
+  }
+  let isDay = false;
+  if(data) {
+    isDay = data?.dt > data?.sys.sunrise && data?.dt < data?.sys.sunset;
+  } else {
+    isDay = locationData?.dt > locationData?.sys.sunrise && locationData?.dt < locationData?.sys.sunset;
+  }
+  console.log(locationData, data);
+  // useEffect(() => {
+
+  // }, [])
   return (
     <div
-      className="bg_img"
-      style={{
-        background: isDay
-          ? ""
-          : "",
-      }}
+      className={`bg_img ${isDay ? "" : "night_bg_img"}`}
+      // style={
+      //   isDay
+      //     ? { backgroundImage: `${Night_BG}` }
+      //     : { backgroundImage: `${BG}` }
+      // }
+      // style={{
+      //   background: isDay ? "" : "",
+      // }}
     >
       <div className="bg_left">
         <TextField
@@ -172,7 +184,7 @@ const WeatherApp = () => {
               </h1>
             </div>
             <h1>
-              Temperature: 
+              Temperature:
               {data?.main.temp.toFixed() || locationData?.main.temp.toFixed()}°C
             </h1>
             {/* <p style={{ background: isDay ? "yellow" : "blue" }}>

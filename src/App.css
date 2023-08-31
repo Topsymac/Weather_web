@@ -21,20 +21,19 @@ body {
   /* flex-direction: column; */
   color: #fff;
 }
+.night_bg_img {
+  width: 100%;
+  min-height: 100vh;
+  background: url(../public/images/Night_BG.jpeg) no-repeat center center/cover;
+}
 
-.bg_left{
+.bg_left {
   width: 70%;
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.bg_right{
-  /* width: 25%; */
-  /* height: 100vh; */
-  /* background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c); linear-gradient(0.25turn, orange, #f69d3c)*/ 
-  /* color: black; */
 }
 
 .input {
@@ -77,7 +76,7 @@ body {
   gap: 10px;
   transition: transform 0.2s;
 }
-.box p{
+.box p {
   font-size: 12px;
 }
 
